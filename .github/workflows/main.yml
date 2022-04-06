@@ -37,5 +37,5 @@ jobs:
 
       - name: Docker build and Push
         run: |
-            docker build . -t sanchicontainerregistry.azurecr.io/demo:latest
-            docker push  sanchicontainerregistry.azurecr.io/demo:latest
+            docker build . -t sanchicontainerregistry.azurecr.io/demo:${{github.run_number}}
+            docker push  sanchicontainerregistry.azurecr.io/demo:${{github.run_number}}
