@@ -38,6 +38,6 @@ jobs:
           password: ${{ secrets.REG_PASSWORD }}
 
       - run: |
-          docker build . -t sanchicontainerregistry.azurecr.io/appdb:${{ github.123 }}
-          docker push sanchicontainerregistry.azurecr.io/appdb:${{ github.123 }}  
+          docker build . -t sanchicontainerregistry.azurecr.io/demo:latest
+          docker push sanchicontainerregistry.azurecr.io/demo:latest 
     
