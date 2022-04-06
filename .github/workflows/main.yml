@@ -28,16 +28,14 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '17'
-      - name: Build a Docker image and Push it to ACR
-        
-      - uses: actions/checkout@v2
-      
+      - name: ACR login
+        uses: azure/docker-login@v1
         with:
           login-server: sanchicontainerregistry.azurecr.io
           username: ${{ secrets.REG_USERNAME }}
           password: ${{ secrets.REG_PASSWORD }}
 
-      - run: |
-          docker build . -t sanchicontainerregistry.azurecr.io/demo:latest
-          docker push sanchicontainerregistry.azurecr.io/demo:latest 
-    
+      - name: Docker build and Push
+        run: |
+            docker build . -t sanchicontainerregistry.azurecr.io/demo:latest
+            docker push  sanchicontainerregistry.azurecr.io/demo:latest
